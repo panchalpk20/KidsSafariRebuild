@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "748131139494",
+    "project_id": "kidsapp2-bc617",
+    "storage_bucket": "kidsapp2-bc617.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748131139494:android:16c8b29320525e92445967",
+        "android_client_info": {
+          "package_name": "com.anngrynerds.kidssafari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748131139494-4o7vusj759gjtd5hfmdbj0db9tc1ifua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs9UYikUT2Z20vcz7NOHrSdl6mctICmrk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748131139494-4o7vusj759gjtd5hfmdbj0db9tc1ifua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

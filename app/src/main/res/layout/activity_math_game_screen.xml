@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/welcom"
+    tools:context=".mathGame.MathGameScreen">
+
+
+    <LinearLayout
+        android:id="@+id/math_hint_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/problem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/math_lives_ll"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Hints: "
+            android:textColor="@color/white"
+            android:textSize="21sp" />
+
+        <ImageView
+            android:id="@+id/math_hint1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/todo"
+            android:onClick="showHint"
+            android:src="@android:drawable/ic_menu_help"
+            android:tooltipText="Want Help?"
+            app:tint="#FFFFFF" />
+
+        <ImageView
+            android:id="@+id/math_hint2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/todo"
+            android:onClick="showHint"
+            android:src="@android:drawable/ic_menu_help"
+            android:tooltipText="Want Help?"
+            app:tint="#54FFFFFF" />
+
+        <ImageView
+            android:id="@+id/math_hint3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/todo"
+            android:onClick="showHint"
+            android:src="@android:drawable/ic_menu_help"
+            android:tooltipText="Want Help?"
+            app:tint="#F46363" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/math_lives_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toEndOf="@+id/score"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.03">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Lives: "
+            android:textColor="@color/white"
+            android:textSize="21sp" />
+
+        <ImageView
+            android:id="@+id/l1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/math_live_icon"
+            app:tint="#F46363" />
+
+        <ImageView
+            android:id="@+id/l2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/math_live_icon"
+            app:tint="#63FFFFFF" />
+
+        <ImageView
+            android:id="@+id/l3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/math_live_icon" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/problem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:clickable="false"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="a+b+c"
+        android:textColor="#fff"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.223" />
+
+
+    <GridLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp"
+        android:rowCount="2"
+        app:layout_constraintBottom_toTopOf="@+id/math_ingame_banner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/problem"
+        app:layout_constraintVertical_bias="0.89">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/math_ansbutton_transition"
+            android:fontFamily="casual"
+            android:text="0"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/math_ansbutton_transition"
+            android:fontFamily="casual"
+            android:text="0"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/math_ansbutton_transition"
+            android:fontFamily="casual"
+            android:text="0"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/math_ansbutton_transition"
+            android:fontFamily="casual"
+            android:text="0"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/math_ansbutton_transition"
+            android:fontFamily="casual"
+            android:text="0"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/ans6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/math_ansbutton_transition"
+            android:fontFamily="casual"
+            android:text="0"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/ansrr"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text=" = ? "
+        android:textColor="#b6eaba"
+        android:textSize="80dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/problem"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/stat"
+        android:layout_width="match_parent"
+        android:layout_height="122dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text=" "
+        android:textAllCaps="false"
+        android:textColor="#b6eaba"
+        android:textSize="80dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.513" />
+
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="135dp"
+        android:layout_height="46dp"
+        android:background="#73AE68"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Score: x"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.03" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/math_ingame_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">KidsSafari2</string>
+    <string name="title_activity_spla">spla</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_splash">splash</string>
+    <string name="score">score: </string>
+    <string name="wrong">Wrong!</string>
+    <string name="correct">Correct!</string>
+    <string name="select_difficulty_level">Select Difficulty Level</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="for_addition">For Addition</string>
+    <string name="for_mul">For Multiplication</string>
+    <string name="for_div">For Division</string>
+    <string name="for_sub">For Subtraction</string>
+    <string name="CorrectText">CORRECT!</string>
+    <string name="WrongText">WRONG !!</string>
+    <string name="WantHelp">Watch ad to see answer</string>
+    <string name="you_ran_out_of_lives">You Ran Out of Lives !!</string>
+    <string name="restart_game">Restart Game</string>
+    <string name="refill_lives">Refill lives</string>
+    <string name="do_you_want_to_exit">Do You want to Exit??</string>
+    <string name="you_ll_lost_progress">You will loose your all progress</string>
+    <string name="continue_game">Continue Game</string>
+    <string name="exit_game">Exit game</string>
+    <string name="start_again">Start Again</string>
+    <string name="todo">TODO</string>
+    <string name="what_you_want_to_do_today">What You Want to do today ?</string>
+    <string name="addition">Addition</string>
+    <string name="subtraction">Subtraction</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
+    <string name="select_game">Select Game</string>
+    <string name="re_fill_lives_watch_an_ad">Re-Fill lives (Watch an Ad)</string>
+    <string name="for_childrens">For Childrens</string>
+    <string name="anngry_nerds">Anngry Nerds</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="admob_app_id">ca-app-pub-9666108206323574~4941643756</string>
+    <string name="math_easy">math_e</string>
+    <string name="math_med">math_m</string>
+    <string name="math_hard">math_h</string>
+    <string name="refill_hints">Refill Hints</string>
+    <string name="watch_to_refill">Watch short ad to get more hints</string>
+</resources>
