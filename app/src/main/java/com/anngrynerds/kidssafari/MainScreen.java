@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.anngrynerds.kidssafari.mathGame.frontScreen;
+import com.anngrynerds.kidssafari.spellGame.spellFrontScreen;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -90,7 +91,7 @@ public class MainScreen extends AppCompatActivity {
 
 
         findViewById(R.id.card_spellME).setOnClickListener(v -> {
-            startActivity(new Intent());
+            startActivity(new Intent(MainScreen.this, spellFrontScreen.class));
         });
 
     }

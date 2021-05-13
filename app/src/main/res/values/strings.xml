@@ -44,4 +44,9 @@
     <string name="math_hard">math_h</string>
     <string name="refill_hints">Refill Hints</string>
     <string name="watch_to_refill">Watch short ad to get more hints</string>
+    <string name="clear">clear</string>
+    <string name="lives">Lives:</string>
+    <string name="hints">Hints:</string>
+
+
 </resources>

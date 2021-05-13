@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KidsSafari2">
-
+        <activity android:name=".spellGame.SpellingGameScreen"></activity>
+        <activity android:name=".spellGame.spellFrontScreen" />
         <activity android:name=".mathGame.MathGameScreen" />
         <activity android:name=".mathGame.frontScreen" />
 

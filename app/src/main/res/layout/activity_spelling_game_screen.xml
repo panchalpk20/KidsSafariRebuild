@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/spell_front_bg"
+    android:backgroundTint="#8D000000"
+    android:backgroundTintMode="src_over"
+    tools:context=".spellGame.SpellingGameScreen">
+
+    <TextView
+        android:id="@+id/score_textViw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#88FFFFFF"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="score:999"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/math_lives_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#88FFFFFF"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toEndOf="@+id/score_textViw"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="@string/lives"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/l1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/math_live_icon"
+            app:tint="#F46363" />
+
+        <ImageView
+            android:id="@+id/l2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/math_live_icon"
+            app:tint="#63FF0000" />
+
+        <ImageView
+            android:id="@+id/l3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/math_live_icon"
+            app:tint="#63FF0000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/math_hint_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#88FFFFFF"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/math_lives_ll"
+        app:layout_constraintVertical_bias="0.01">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="@string/hints"
+            android:textColor="@color/black"
+            android:textSize="21sp" />
+
+        <ImageView
+            android:id="@+id/spell_hint1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:contentDescription="@string/todo"
+            android:onClick="showHint"
+            android:src="@android:drawable/ic_menu_help"
+            android:tooltipText="Want Help?"
+            app:tint="#FF1111" />
+
+        <ImageView
+            android:id="@+id/spell_hint2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:contentDescription="@string/todo"
+            android:onClick="showHint"
+            android:src="@android:drawable/ic_menu_help"
+            android:tooltipText="Want Help?"
+            app:tint="#54FF3838" />
+
+        <ImageView
+            android:id="@+id/spell_hint3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/todo"
+            android:onClick="showHint"
+            android:src="@android:drawable/ic_menu_help"
+            android:tooltipText="Want Help?"
+            app:tint="#F46363" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#c000ffe1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.586">
+
+        <TextView
+            android:id="@+id/spell_keyout_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:letterSpacing="0.1"
+            android:padding="3dp"
+            android:text="_____"
+            android:textAllCaps="true"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cls"
+            android:layout_width="138dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@drawable/clear_button"
+            android:fontFamily="casual"
+            android:text="@string/clear"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="225dp"
+        android:layout_height="212dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.1">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b3"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b4"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b5"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b6"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b7"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b8"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b9"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b10"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b11"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/b12"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:background="@drawable/spell_key_button"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </TableLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/spellIngame_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-9666108206323574/3969211546"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
