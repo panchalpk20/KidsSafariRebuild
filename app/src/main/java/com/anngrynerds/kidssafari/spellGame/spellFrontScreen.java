@@ -2,6 +2,7 @@ package com.anngrynerds.kidssafari.spellGame;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -33,8 +34,10 @@ public class spellFrontScreen extends AppCompatActivity {
 
         onClickOnSpellDiffButton = v -> {
             Button b = (Button) v;
+            Log.e("diff level ", "" + b.getText().toString());
             startActivity(new Intent(spellFrontScreen.this, SpellingGameScreen.class)
                     .putExtra("DiffLvl", b.getText().toString()));
+
         };
 
 //        Ad Code
