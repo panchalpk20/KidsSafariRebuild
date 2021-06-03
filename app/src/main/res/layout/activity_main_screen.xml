@@ -117,7 +117,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/shapes"
+                android:id="@+id/card_drawGame"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
@@ -133,13 +133,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.airbnb.lottie.LottieAnimationView
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/anim_comingsoon"
-                        app:lottie_repeatMode="reverse" />
+                        android:background="#ffff"
+                        android:backgroundTint="#123"
+                        android:contentDescription="@string/todo" />
 
                 </RelativeLayout>
 

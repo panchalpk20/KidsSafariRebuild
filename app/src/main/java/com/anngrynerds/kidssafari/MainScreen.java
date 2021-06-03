@@ -7,11 +7,14 @@ import android.content.IntentSender;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.anngrynerds.kidssafari.drawgame.DrawMainActivity;
 import com.anngrynerds.kidssafari.mathGame.frontScreen;
 import com.anngrynerds.kidssafari.spellGame.spellFrontScreen;
 import com.google.android.gms.ads.AdRequest;
@@ -42,6 +45,9 @@ public class MainScreen extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main_screen);
 
         Objects.requireNonNull(getSupportActionBar()).hide();
@@ -88,6 +94,11 @@ public class MainScreen extends AppCompatActivity {
         findViewById(R.id.card_spellME).setOnClickListener(v -> {
             startActivity(new Intent(MainScreen.this, spellFrontScreen.class));
         });
+
+        findViewById(R.id.card_drawGame).setOnClickListener(v -> {
+            startActivity(new Intent(MainScreen.this, DrawMainActivity.class));
+        });
+
 
     }
 

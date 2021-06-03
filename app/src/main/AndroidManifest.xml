@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.anngrynerds.kidssafari">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-feature android:name="android.hardware.screen.portrait" />
 
@@ -15,7 +23,9 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.KidsSafari2">
-        <activity android:name=".drawgame.DrawMainActivity"></activity>
+        <activity
+            android:name=".drawgame.DrawMainActivity"
+            android:screenOrientation="landscape" />
         <activity android:name=".spellGame.SpellingGameScreen" />
         <activity android:name=".spellGame.spellFrontScreen" />
         <activity android:name=".mathGame.MathGameScreen" />
