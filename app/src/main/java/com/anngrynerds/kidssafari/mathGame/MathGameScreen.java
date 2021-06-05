@@ -476,7 +476,7 @@ public class MathGameScreen extends AppCompatActivity {
                         mRewardedAd = rewardedAd;
 //                        Log.d("TAG", "onAdFailedToLoad");\
                         isRewardedAdReady = true;
-                        Toast.makeText(context, "ad loaded", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(context, "ad loaded", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -526,7 +526,7 @@ public class MathGameScreen extends AppCompatActivity {
 
     private void noHints() {
 
-        Toast.makeText(context, "No- Hints", Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(context, "No- Hints", Toast.LENGTH_SHORT).show();
 
 //        TODO Ran out of hints
 

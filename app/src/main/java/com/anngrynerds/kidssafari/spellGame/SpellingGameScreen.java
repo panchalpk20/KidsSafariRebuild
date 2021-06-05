@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -166,6 +167,7 @@ public class SpellingGameScreen extends AppCompatActivity {
             StringBuilder newString;
 
             newString = new StringBuilder(getIpStrig(inputString));
+
             if (newString.length() > 0) {
 ////                newString.deleteCharAt(newString.length());
 
@@ -173,11 +175,11 @@ public class SpellingGameScreen extends AppCompatActivity {
 
                 newString.deleteCharAt(newString.length() - 1);
 
-                for (int i = newString.length(); i < answere.length(); i++) {
-                    newString.append("_");
-                }
-            }
 
+            }
+            for (int i = newString.length(); i < answere.length(); i++) {
+                newString.append("_");
+            }
             inputTv.setText(newString);
 
         });
@@ -195,22 +197,58 @@ public class SpellingGameScreen extends AppCompatActivity {
         int noOfChars = getNoOfChars(str);
         Log.e("checkAns: ", "Input: " + str);
         if (str.equalsIgnoreCase(answere)) {
-            Toast.makeText(context, "Right ans", Toast.LENGTH_SHORT).show();
-            inputTv.setText("");
-            scoreInt++;
-            setScore();
-            setImage();
+            // Toast.makeText(context, "Right ans", Toast.LENGTH_SHORT).show();
+            inputTv.setText("CORRECT ! ");
+            inputTv.setTextColor(Color.BLUE);
+            new CountDownTimer(1000, 1) {
+
+                public void onTick(long millisUntilFinished) {
+                    //pg.setProgress((int) ((int) max - millisUntilFinished));
+                }
+
+                public void onFinish() {
+                    inputTv.setTextColor(Color.BLACK);
+                    inputTv.setText("");
+                    scoreInt++;
+                    setScore();
+                    setImage();
+                }
+            }.start();
+
+
         } else if (noOfChars == MAX_LENGHT_OF_SPELLING) {
-            Toast.makeText(context, "Wrong ans", Toast.LENGTH_SHORT).show();
-            if (LIVES_int == 0) noLives();
-            else {
-                LIVES_int--;
-                inputTv.setText("");
-                if (LIVES_int < 0)
-                    noLives();
-                else
-                    setLivesIcon();
-            }
+            //       Toast.makeText(context, "Wrong ans", Toast.LENGTH_SHORT).show();
+
+            inputTv.setText("WRONG ! ");
+            inputTv.setTextColor(Color.RED);
+            new CountDownTimer(1000, 1) {
+
+                public void onTick(long millisUntilFinished) {
+                    //pg.setProgress((int) ((int) max - millisUntilFinished));
+                }
+
+                public void onFinish() {
+                    inputTv.setTextColor(Color.BLACK);
+                    if (LIVES_int == 0) noLives();
+                    else {
+                        LIVES_int--;
+                        inputTv.setText("");
+                        if (LIVES_int < 0)
+                            noLives();
+                        else
+                            setLivesIcon();
+                    }
+                    ipString.setLength(0);
+                    MAX_LENGHT_OF_SPELLING = answere.length();
+                    for (int i = 0; i < MAX_LENGHT_OF_SPELLING; i++) {
+                        ipString.append("_");
+                    }
+
+                    inputTv.setText(ipString);
+                }
+            }.start();
+
+
         } else {
             inputTv.setText("");
             StringBuilder inputToSet = new StringBuilder(str);
@@ -247,8 +285,9 @@ public class SpellingGameScreen extends AppCompatActivity {
                     "\nYour score: " + scoreInt;
         }
         score.setText(scoreString);
-
-        nooLives.findViewById(R.id.refillLives).setOnClickListener(view -> {
+        Button refill = nooLives.findViewById(R.id.refillLives);
+        refill.setText("Refill Lives");
+        refill.setOnClickListener(view -> {
             //Load ad
             if (isRewardedAdReady) {
                 displayRewardedAd();
@@ -292,9 +331,11 @@ public class SpellingGameScreen extends AppCompatActivity {
         TextView headtv = nooLives.findViewById(R.id.no_lives_spell_heading);
 
         headtv.setText("No Hints!!");
-        score.setText("You have No HInts lefts");
+        score.setText("You have No Hints lefts");
 
-        nooLives.findViewById(R.id.refillLives).setOnClickListener(view -> {
+        Button refill = nooLives.findViewById(R.id.refillLives);
+        refill.setText("Refill Hints");
+        refill.setOnClickListener(view -> {
             //Load ad
             if (isRewardedAdReady) {
                 displayRewardedAd();
@@ -355,7 +396,7 @@ public class SpellingGameScreen extends AppCompatActivity {
                     public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
                         mRewardedAd = rewardedAd;
                         isRewardedAdReady = true;
-                        Toast.makeText(context, "ad loaded", Toast.LENGTH_LONG).show();
+                        //  Toast.makeText(context, "ad loaded", Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -470,7 +511,6 @@ public class SpellingGameScreen extends AppCompatActivity {
             ipString.append("_");
         }
 
-        MAX_LENGHT_OF_SPELLING = answere.length();
         inputTv.setText(ipString);
 
         setButtons();
@@ -565,5 +605,31 @@ public class SpellingGameScreen extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
 
+        final Dialog nooLives = new Dialog(SpellingGameScreen.this);
+        nooLives.setContentView(R.layout.spelling_no_lives_and_exit);
+        nooLives.setCancelable(true);
+        TextView score = nooLives.findViewById(R.id.textView5);
+        TextView headtv = nooLives.findViewById(R.id.no_lives_spell_heading);
+
+        headtv.setText("Exit? ");
+        score.setText("You will loose your progress");
+
+        Button refill = nooLives.findViewById(R.id.refillLives);
+        refill.setText("Get Back to game");
+        refill.setOnClickListener(view -> {
+
+            nooLives.dismiss();
+        });
+        Button restart = nooLives.findViewById(R.id.restart_math);
+        restart.setText("Loose progress and exit");
+        restart.setOnClickListener(view -> {
+            nooLives.dismiss();
+            super.onBackPressed();
+        });
+        nooLives.show();
+
+    }
 }

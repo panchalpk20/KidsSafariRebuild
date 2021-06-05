@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-
+    android:layout_margin="5dp"
     tools:context=".drawgame.DrawMainActivity">
 
     <LinearLayout
@@ -14,129 +14,138 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:baselineAligned="false"
-        android:orientation="horizontal"
-        android:weightSum="30">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:background="#123"
-            android:orientation="vertical"
-            android:weightSum="2">
-            <!--            colors-->
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ff0000"
-                android:onClick="setC"
-                android:tag="#ff0000" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#00ff00"
-                android:onClick="setC"
-                android:tag="#00ff00" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#000099"
-                android:onClick="setC"
-                android:tag="#000099" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#fffb00"
-                android:onClick="setC"
-                android:tag="#fffb00" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#f700ff"
-                android:onClick="setC"
-                android:tag="#f700ff" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#469990"
-                android:onClick="setC"
-                android:tag="#469990" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:background="#123"
-            android:orientation="vertical"
-            android:weightSum="2">
-            <!--            colors-->
-
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ff6a00"
-                android:onClick="setC"
-                android:tag="#ff6a00" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#00a2ff"
-                android:onClick="setC"
-                android:tag="#00a2ff" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#9d00ff"
-                android:onClick="setC"
-                android:tag="#9d00ff" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#239503"
-                android:onClick="setC"
-                android:tag="#239503" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#000000"
-                android:onClick="setC"
-                android:tag="#000000" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/draw_colorpicker"
-                android:onClick="colorPeek"
-                android:tag="#737373" />
-
-
-        </LinearLayout>
 
         <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="26">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <com.anngrynerds.kidssafari.drawgame.DrawPadView
                 android:id="@+id/drawPadView1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#fff" />
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:orientation="vertical">
+                <!--            colors-->
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#ff0000"
+                    app:cardBackgroundColor="#ff0000"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#00ff00"
+                    app:cardBackgroundColor="#00ff00"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#000099"
+                    app:cardBackgroundColor="#000099"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#fffb00"
+                    app:cardBackgroundColor="#fffb00"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#f700ff"
+                    app:cardBackgroundColor="#f700ff"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/drawCurrentColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="#469990"
+                    android:tag="#469990" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:orientation="vertical">
+                <!--            colors-->
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#ff6a00"
+                    app:cardBackgroundColor="#ff6a00"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#00a2ff"
+                    app:cardBackgroundColor="#00a2ff"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#9d00ff"
+                    app:cardBackgroundColor="#9d00ff"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#239503"
+                    app:cardBackgroundColor="#239503"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="setC"
+                    android:tag="#000000"
+                    app:cardBackgroundColor="#000000"
+                    app:cardCornerRadius="200dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/draw_colorpicker"
+                    android:onClick="colorPeek"
+                    android:tag="#737373" />
+
+
+            </LinearLayout>
+
+
 
             <TextView
                 android:id="@+id/seekbartv"
@@ -154,7 +163,7 @@
                 android:id="@+id/seekBar1"
                 android:layout_width="400dp"
                 android:layout_height="50dp"
-                android:layout_gravity="bottom"
+                android:layout_gravity="bottom|center"
                 android:layout_marginBottom="20dp"
                 android:progressDrawable="@drawable/draw_seek_bar"
                 android:max="100"

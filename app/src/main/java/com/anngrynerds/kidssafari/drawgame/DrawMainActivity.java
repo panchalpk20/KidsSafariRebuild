@@ -50,7 +50,7 @@ public class DrawMainActivity extends AppCompatActivity {
     LinearLayout control;
     Dialog dialog;
     View drawLayout;
-    Button pensize;
+    Button pensize, currentColor;
     TextView dTitle, dHeading, seekbarTv;
     Button dYes, dNo;
     private DrawPadView hbView;
@@ -98,6 +98,7 @@ public class DrawMainActivity extends AppCompatActivity {
         seekbarTv = findViewById(R.id.seekbartv);
         seekbarTv.setVisibility(View.GONE);
 
+        currentColor = findViewById(R.id.drawCurrentColor);
         pensize = findViewById(R.id.pensize);
         hbView = findViewById(R.id.drawPadView1);
         widthSb = findViewById(R.id.seekBar1);
@@ -163,13 +164,13 @@ public class DrawMainActivity extends AppCompatActivity {
                 // The mInterstitialAd reference will be null until
                 // an ad is loaded.
                 mInterstitialAd = interstitialAd;
-                Toast.makeText(DrawMainActivity.this, "Ad loaded", Toast.LENGTH_SHORT).show();
+                //        Toast.makeText(DrawMainActivity.this, "Ad loaded", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                 // Handle the error
-                Toast.makeText(DrawMainActivity.this, "Ad not loaded " + loadAdError.getMessage(), Toast.LENGTH_LONG).show();
+                //   Toast.makeText(DrawMainActivity.this, "Ad not loaded " + loadAdError.getMessage(), Toast.LENGTH_LONG).show();
                 mInterstitialAd = null;
             }
         });
@@ -309,8 +310,7 @@ public class DrawMainActivity extends AppCompatActivity {
 
         } else {
             hbView.setColor(Color.parseColor(color));
-            pensize.setBackgroundColor(Color.parseColor(color));
-            pensize.setTextColor(Color.BLACK);
+            currentColor.setBackgroundColor(Color.parseColor(color));
             //     findViewById(R.id.mainl).setBackgroundColor(Color.parseColor(color));
 
         }
@@ -332,5 +332,22 @@ public class DrawMainActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        dTitle.setText("Exit");
+        dHeading.setText("Unsaved Drawing will be lost");
+
+        dialog.show();
+
+
+        dYes.setOnClickListener(v -> {
+            super.onBackPressed();
+
+        });
+        dNo.setOnClickListener(v -> dialog.dismiss());
+
     }
 }
