@@ -79,9 +79,20 @@ public class ResKeyValue {
 
 
     public static int[] hardRes = {
+
             R.drawable.spell_h_badminton, R.drawable.spell_h_astronaut,
             R.drawable.spell_h_binoculares, R.drawable.spell_h_microscope,
-            R.drawable.spell_h_santaclaus, R.drawable.spell_h_satellite
+            R.drawable.spell_h_santaclaus, R.drawable.spell_h_satellite,
+            R.drawable.spell_h_helmet, R.drawable.spell_h_spacecraf,
+            R.drawable.spell_h_telescope, R.drawable.spell_h_mushroom,
+            R.drawable.spell_h_pumpkin, R.drawable.spell_h_swimming,
+            R.drawable.spell_h_hibiscus, R.drawable.spell_h_jackfruit,
+            R.drawable.spell_h_tuberose, R.drawable.spell_h_parachute,
+            R.drawable.spell_h_octopus, R.drawable.spell_h_kangaroo,
+            R.drawable.spell_h_penguine, R.drawable.spell_h_chameleon,
+            R.drawable.spell_h_tv, R.drawable.spell_h_snowmobile,
+            R.drawable.spell_h_mosquito, R.drawable.spell_h_ostrich,
+            R.drawable.spell_h_dinosaur
 
 
     };
@@ -89,31 +100,17 @@ public class ResKeyValue {
     public static String[] hardAns = {
             "BADMINTON", "ASTRONAUT",
             "BINOCULARS", "MICROSCOPE",
-            "SANTACLAUS", "SATELLITE"
+            "SANTACLAUS", "SATELLITE",
+            "HELMET", "SPACECRAFT",
+            "TELESCOPE", "MUSHROOM",
+            "PUMPKIN", "SWIMMING",
+            "HIBISCUS", "JACKFRUIT",
+            "TUBEROSE", "PARACHUTE",
+            "OCTOPUS", "KANGAROO",
+            "PENGUIN", "CHAMELEON",
+            "TELEVISION", "SNOWMOBILE",
+            "MOSQUITO", "OSTRICH",
+            "DINOSAUR"
     };
 
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
