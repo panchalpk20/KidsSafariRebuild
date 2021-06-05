@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -143,6 +145,13 @@ public class DrawMainActivity extends AppCompatActivity {
             }
 
         });
+
+        ImageButton save = findViewById(R.id.draw_save);
+
+        ConstraintLayout parent = findViewById(R.id.mainl);
+        TextView tv = new TextView(this);
+        tv.setX(save.getX() + 10);
+        parent.addView(tv);
 
     }
 
@@ -285,7 +294,8 @@ public class DrawMainActivity extends AppCompatActivity {
 
         if (color.equals("#ffffff")) {
             widthSb.setProgress(100);
-            control.setBackgroundColor(Color.WHITE);
+//            pensize.setBackgroundColor(Color.WHITE);
+//            pensize.setTextColor(Color.BLACK);
             findViewById(R.id.mainl).setBackgroundColor(Color.WHITE
             );
 
@@ -293,14 +303,15 @@ public class DrawMainActivity extends AppCompatActivity {
         if (color.equals("pencil")) {
             hbView.setColor(Color.BLACK);
             widthSb.setProgress(3);
-            control.setBackgroundColor(Color.BLACK);
+//            pensize.setBackgroundColor(Color.BLACK);
+//            pensize.setTextColor(Color.WHITE);
             findViewById(R.id.mainl).setBackgroundColor(Color.BLACK);
 
         } else {
             hbView.setColor(Color.parseColor(color));
-            control.setBackgroundColor(Color.parseColor(color));
-            findViewById(R.id.mainl).setBackgroundColor(Color.parseColor(color));
-
+            pensize.setBackgroundColor(Color.parseColor(color));
+            pensize.setTextColor(Color.BLACK);
+            //     findViewById(R.id.mainl).setBackgroundColor(Color.parseColor(color));
 
         }
 
@@ -322,6 +333,4 @@ public class DrawMainActivity extends AppCompatActivity {
         });
         dialog.show();
     }
-
-
 }

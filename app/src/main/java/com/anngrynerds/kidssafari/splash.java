@@ -16,7 +16,7 @@ public class splash extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        new CountDownTimer(2000, 1) {
+        new CountDownTimer(1000, 1) {
 
             public void onTick(long millisUntilFinished) {
                 //pg.setProgress((int) ((int) max - millisUntilFinished));

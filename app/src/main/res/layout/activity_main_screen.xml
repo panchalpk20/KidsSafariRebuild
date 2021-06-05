@@ -136,8 +136,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#ffff"
-                        android:backgroundTint="#123"
+                        android:src="@drawable/pencil"
                         android:contentDescription="@string/todo" />
 
                 </RelativeLayout>
