@@ -51,6 +51,8 @@ public class SpellingGameScreen extends AppCompatActivity {
     ImageView imageView;
     ImageView img_l1, img_l2, img_l3, spellHint1, spellHint2, spellHint3;
 
+    Button clear;
+
     int HINTS_int = 3, LIVES_int = 3, scoreInt = 0, HIGHSCORE_INT;
     StringBuilder ipString = new StringBuilder();
 
@@ -99,6 +101,8 @@ public class SpellingGameScreen extends AppCompatActivity {
             b[9] = findViewById(R.id.b10);
             b[10] = findViewById(R.id.b11);
             b[11] = findViewById(R.id.b12);
+
+            clear = findViewById(R.id.cls);
 
             inputTv = findViewById(R.id.spell_keyout_tv);
             img_l1 = findViewById(R.id.l1);
@@ -157,6 +161,26 @@ public class SpellingGameScreen extends AppCompatActivity {
             Toast.makeText(context, "Something went wrong please restart the game", Toast.LENGTH_SHORT).show();
         }
 
+        clear.setOnClickListener(v -> {
+            String inputString = inputTv.getText().toString();
+            StringBuilder newString;
+
+            newString = new StringBuilder(getIpStrig(inputString));
+            if (newString.length() > 0) {
+////                newString.deleteCharAt(newString.length());
+
+                Log.e("onCreate: ", newString.toString() + ": " + newString.length() + ": " + newString.charAt(newString.length() - 1));
+
+                newString.deleteCharAt(newString.length() - 1);
+
+                for (int i = newString.length(); i < answere.length(); i++) {
+                    newString.append("_");
+                }
+            }
+
+            inputTv.setText(newString);
+
+        });
 
         setScore();
         setLivesIcon();
@@ -294,7 +318,6 @@ public class SpellingGameScreen extends AppCompatActivity {
         nooLives.show();
 
     }
-
 
     private String getIpStrig(String str) {
         StringBuilder ret = new StringBuilder();
