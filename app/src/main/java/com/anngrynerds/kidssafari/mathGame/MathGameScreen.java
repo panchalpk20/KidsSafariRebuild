@@ -210,46 +210,51 @@ public class MathGameScreen extends AppCompatActivity {
         nooLives.findViewById(R.id.refillLives).setOnClickListener(view -> {
             //Load ad
             if (isRewardedAdReady) {
-                displayRewardedAd();
-                if (isRewardEarned) {
-                    LIVES_int = 3;
-                    setIconsLives();
-                } else {
-                    Toast.makeText(context, "Unable to Get Reward", Toast.LENGTH_SHORT).show();
+                if (mRewardedAd != null) {
+                    Activity activityContext = MathGameScreen.this;
+                    mRewardedAd.show(activityContext, rewardItem -> {
+                        // Handle the reward.
+                        Toast.makeText(MathGameScreen.this, "Reward earned", Toast.LENGTH_SHORT).show();
+                        LIVES_int = 3;
+                        setIconsLives();
+                        nooLives.dismiss();
+                    });
                 }
             } else
                 Toast.makeText(context, "Unable to load ad at this moment", Toast.LENGTH_LONG).show();
-            nooLives.dismiss();
         });
         nooLives.findViewById(R.id.restart_math).setOnClickListener(view -> {
             if (HIGHSCORE_INT < scoreInt) {
                 SharedPreferences prefs = context.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
+                Log.e("noLives: ", "MathHighScore" + difLvl + sign);
                 editor.putInt("MathHighScore" + difLvl + sign, scoreInt);
                 editor.apply();
             }
             nooLives.dismiss();
+
             super.onBackPressed();
+
         });
         nooLives.show();
 
     }
 
-    private void displayRewardedAd() {
-
-        if (mRewardedAd != null) {
-            Activity activityContext = MathGameScreen.this;
-            mRewardedAd.show(activityContext, rewardItem -> {
-                // Handle the reward.
-                Log.d("TAG", "The user earned the reward.");
-                isRewardEarned = true;
-                loadRewardedAd();
-            });
-        } else {
-            Log.d("TAG", "The rewarded ad wasn't ready yet.");
-            loadRewardedAd();
-        }
-    }
+//    private void displayRewardedAd() {
+//
+//        if (mRewardedAd != null) {
+//            Activity activityContext = MathGameScreen.this;
+//            mRewardedAd.show(activityContext, rewardItem -> {
+//                // Handle the reward.
+//                Log.d("TAG", "The user earned the reward.");
+//                isRewardEarned = true;
+//                loadRewardedAd();
+//            });
+//        } else {
+//            Log.d("TAG", "The rewarded ad wasn't ready yet.");
+//            loadRewardedAd();
+//        }
+//    }
 
     private void correctAnswer(Button b) {
         String ansString = " = " + b.getText().toString();
@@ -334,7 +339,7 @@ public class MathGameScreen extends AppCompatActivity {
                 multiplication.genrateEasy();
                 n1 = multiplication.n1;
                 n2 = multiplication.n2;
-                n3 = 0;
+                n3 = 1;
                 ansInt = n1 * n2;
             } else if (isMedium) {
                 multiplication.genrateMedium();
@@ -526,7 +531,7 @@ public class MathGameScreen extends AppCompatActivity {
 
     private void noHints() {
 
-        //  Toast.makeText(context, "No- Hints", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "No- Hints", Toast.LENGTH_SHORT).show();
 
 //        TODO Ran out of hints
 
@@ -543,18 +548,20 @@ public class MathGameScreen extends AppCompatActivity {
         showAd.setOnClickListener(view -> {
             //Load ad
             if (isRewardedAdReady) {
-                displayRewardedAd();
-                if (isRewardEarned) {
-                    HINTS_int = 3;
-                    setIconsHints();
-                } else {
-                    Toast.makeText(context, "Unable to Get Reward", Toast.LENGTH_SHORT).show();
+                if (mRewardedAd != null) {
+                    Activity activityContext = MathGameScreen.this;
+                    mRewardedAd.show(activityContext, rewardItem -> {
+                        // Handle the reward.
+                        Toast.makeText(MathGameScreen.this, "Reward earned", Toast.LENGTH_SHORT).show();
+                        HINTS_int = 3;
+                        setIconsHints();
+                        noHints.dismiss();
+                    });
                 }
             } else
                 Toast.makeText(context, "Unable to load ad at this moment", Toast.LENGTH_LONG).show();
 
             loadRewardedAd();
-            noHints.dismiss();
         });
 
         noHints.show();

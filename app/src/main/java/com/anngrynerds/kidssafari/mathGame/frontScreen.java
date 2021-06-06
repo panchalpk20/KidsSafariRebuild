@@ -80,10 +80,6 @@ public class frontScreen extends AppCompatActivity {
 
 //        get High Score
 
-        SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
-        hisE = prefs.getInt("MathHighScore" + "easy" + sign, 0);
-        hisM = prefs.getInt("MathHighScore" + "Medium" + sign, 0);
-        hisH = prefs.getInt("MathHighScore" + "Hard" + sign, 0);
 
 //        end high score
 
@@ -124,6 +120,13 @@ public class frontScreen extends AppCompatActivity {
         CL_selectSign.setVisibility(View.GONE);
         CL_selectDiff.setVisibility(View.VISIBLE);
 
+
+        SharedPreferences prefs = this.getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE);
+        hisE = prefs.getInt("MathHighScore" + "math_e" + sign, 0);
+        hisM = prefs.getInt("MathHighScore" + "math_m" + sign, 0);
+        hisH = prefs.getInt("MathHighScore" + "math_h" + sign, 0);
+
+
         hiScE.setText(MessageFormat.format("Hi-Score: {0}", hisE));
         hiScM.setText(MessageFormat.format("Hi-Score: {0}", hisM));
         hiScH.setText(MessageFormat.format("Hi-Score: {0}", hisH));
@@ -144,4 +147,6 @@ public class frontScreen extends AppCompatActivity {
 
 
     }
+
+
 }

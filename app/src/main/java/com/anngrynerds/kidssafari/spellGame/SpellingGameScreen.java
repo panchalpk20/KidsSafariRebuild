@@ -197,7 +197,7 @@ public class SpellingGameScreen extends AppCompatActivity {
         int noOfChars = getNoOfChars(str);
         Log.e("checkAns: ", "Input: " + str);
         if (str.equalsIgnoreCase(answere)) {
-            // Toast.makeText(context, "Right ans", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(context, "Right ans", Toast.LENGTH_SHORT).show();
             inputTv.setText("CORRECT ! ");
             inputTv.setTextColor(Color.BLUE);
             new CountDownTimer(1000, 1) {
@@ -249,6 +249,7 @@ public class SpellingGameScreen extends AppCompatActivity {
             }.start();
 
 
+
         } else {
             inputTv.setText("");
             StringBuilder inputToSet = new StringBuilder(str);
@@ -290,14 +291,19 @@ public class SpellingGameScreen extends AppCompatActivity {
         refill.setOnClickListener(view -> {
             //Load ad
             if (isRewardedAdReady) {
-                displayRewardedAd();
-                if (isRewardEarned) {
+                Activity activityContext = SpellingGameScreen.this;
+                mRewardedAd.show(activityContext, rewardItem -> {
+                    // Handle the reward.
+//                        Log.d("TAG", "The user earned the reward.");
+                    Toast.makeText(context, "Reward Earned", Toast.LENGTH_SHORT).show();
+//                        isRewardEarned = true;
+
                     LIVES_int = 3;
                     setLivesIcon();
+                    loadRewardedAd();
                     nooLives.dismiss();
-                } else {
-                    Toast.makeText(context, "Unable to Get Reward", Toast.LENGTH_SHORT).show();
-                }
+
+                });
             } else {
                 Toast.makeText(context, "Unable to load ad at this moment", Toast.LENGTH_LONG).show();
                 nooLives.dismiss();
@@ -320,7 +326,7 @@ public class SpellingGameScreen extends AppCompatActivity {
 
     private void noHints() {
 
-        Toast.makeText(context, "Ran out of Hints", Toast.LENGTH_LONG).show();
+        // Toast.makeText(context, "Ran out of Hints", Toast.LENGTH_LONG).show();
 
 //        TODO Ran out of hints
 
@@ -338,17 +344,38 @@ public class SpellingGameScreen extends AppCompatActivity {
         refill.setOnClickListener(view -> {
             //Load ad
             if (isRewardedAdReady) {
-                displayRewardedAd();
-                if (isRewardEarned) {
-                    HINTS_int = 3;
-                    setHintIcon();
+//                displayRewardedAd();
+//                if (isRewardEarned) {
+//                    HINTS_int = 3;
+//                    setHintIcon();
+//                } else {
+//                    Toast.makeText(context, "Unable to Get Reward", Toast.LENGTH_SHORT).show();
+//                }
+
+                if (mRewardedAd != null) {
+                    Activity activityContext = SpellingGameScreen.this;
+                    mRewardedAd.show(activityContext, rewardItem -> {
+                        // Handle the reward.
+//                        Log.d("TAG", "The user earned the reward.");
+                        Toast.makeText(context, "Reward Earned", Toast.LENGTH_SHORT).show();
+//                        isRewardEarned = true;
+
+                        HINTS_int = 3;
+                        setHintIcon();
+                        loadRewardedAd();
+                        nooLives.dismiss();
+
+                    });
                 } else {
-                    Toast.makeText(context, "Unable to Get Reward", Toast.LENGTH_SHORT).show();
+                    Log.d("TAG", "rewarded ad false");
+                    loadRewardedAd();
                 }
+
             } else
                 Toast.makeText(context, "Unable to load ad at this moment", Toast.LENGTH_LONG).show();
-            nooLives.dismiss();
         });
+
+
         Button restart = nooLives.findViewById(R.id.restart_math);
         restart.setText("Loose progress and exit");
         restart.setOnClickListener(view -> {
@@ -427,7 +454,7 @@ public class SpellingGameScreen extends AppCompatActivity {
                     // Don't forget to set the ad reference to null so you
                     // don't show the ad a second time.
                     Log.e("TAG", "Ad was dismissed.");
-                    Toast.makeText(context, "No Reward Earned", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "No Reward Earned", Toast.LENGTH_SHORT).show();
                     //     loadRewardedAd();
                 }
 
@@ -440,7 +467,7 @@ public class SpellingGameScreen extends AppCompatActivity {
             Activity activityContext = SpellingGameScreen.this;
             mRewardedAd.show(activityContext, rewardItem -> {
                 // Handle the reward.
-                Log.d("TAG", "The user earned the reward.");
+                Toast.makeText(context, "Reward Earned", Toast.LENGTH_SHORT).show();
                 isRewardEarned = true;
                 loadRewardedAd();
             });

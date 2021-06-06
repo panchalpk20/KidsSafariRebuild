@@ -11,7 +11,7 @@
         android:id="@+id/mathgame_layer1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <ImageButton
             android:id="@+id/back"
@@ -65,6 +65,7 @@
                 android:layout_weight="0.5"
                 android:background="@drawable/sign_buttons"
                 android:fontFamily="casual"
+                android:textAllCaps="false"
                 android:text="@string/addition"
                 android:textColor="#fff"
                 android:textSize="22sp"
@@ -77,6 +78,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
                 android:layout_weight="0.5"
+                android:textAllCaps="false"
                 android:background="@drawable/sign_buttons"
                 android:fontFamily="casual"
                 android:text="@string/subtraction"
@@ -88,6 +90,7 @@
                 android:id="@+id/mult"
                 android:layout_width="250dp"
                 android:layout_height="68dp"
+                android:textAllCaps="false"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
                 android:layout_weight="0.5"
@@ -101,6 +104,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/div"
                 android:layout_width="250dp"
+                android:textAllCaps="false"
                 android:layout_height="68dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"

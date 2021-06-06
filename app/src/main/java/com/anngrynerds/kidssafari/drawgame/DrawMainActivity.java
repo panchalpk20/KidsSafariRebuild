@@ -164,7 +164,7 @@ public class DrawMainActivity extends AppCompatActivity {
                 // The mInterstitialAd reference will be null until
                 // an ad is loaded.
                 mInterstitialAd = interstitialAd;
-                //        Toast.makeText(DrawMainActivity.this, "Ad loaded", Toast.LENGTH_SHORT).show();
+        //        Toast.makeText(DrawMainActivity.this, "Ad loaded", Toast.LENGTH_SHORT).show();
             }
 
             @Override
