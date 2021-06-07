@@ -335,26 +335,29 @@ public class MathGameScreen extends AppCompatActivity {
             setAnsTiles();
         } else if (isMul) {
             MULTIPLICATION multiplication = new MULTIPLICATION();
+            String s = "";
             if (isEasy) {
                 multiplication.genrateEasy();
                 n1 = multiplication.n1;
                 n2 = multiplication.n2;
                 n3 = 1;
                 ansInt = n1 * n2;
+                s = n1 + "x" + n2;
             } else if (isMedium) {
                 multiplication.genrateMedium();
                 n1 = multiplication.n1;
                 n2 = multiplication.n2;
                 n3 = multiplication.n3;
                 ansInt = n1 * n2;
+                s = n1 + "x" + n2;
             } else if (isHard) {//hard
                 multiplication.genrateHard();
                 n1 = multiplication.n1;
                 n2 = multiplication.n2;
                 n3 = multiplication.n3;
                 ansInt = n1 * n2 * n3;
+                s = n1 + "x" + n2 + "x" + n3;
             }
-            String s = n1 + "x" + n2 + "x" + n3;
             problemTV.setText(s);
             setAnsTiles();
         } else if (isDiv) {
@@ -363,7 +366,6 @@ public class MathGameScreen extends AppCompatActivity {
                 division.genrateEasy();
                 n1 = division.n1;
                 n2 = division.n2;
-                n3 = 0;
             } else if (isMedium) {
                 division.genrateMedium();
                 n1 = division.n1;

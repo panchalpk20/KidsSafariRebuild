@@ -16,9 +16,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/splash_icon"
+        android:icon="@drawable/icon"
+        android:roundIcon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KidsSafari2">
         <activity
