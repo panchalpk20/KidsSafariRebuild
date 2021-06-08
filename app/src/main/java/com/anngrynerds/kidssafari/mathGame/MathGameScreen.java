@@ -187,7 +187,7 @@ public class MathGameScreen extends AppCompatActivity {
     }
 
     private void noLives() {
-        Toast.makeText(context, "Ran out of Lives", Toast.LENGTH_LONG).show();
+   //     Toast.makeText(context, "Ran out of Lives", Toast.LENGTH_LONG).show();
 
 //        TODO Ran out od lives
 
@@ -514,7 +514,7 @@ public class MathGameScreen extends AppCompatActivity {
                     // Don't forget to set the ad reference to null so you
                     // don't show the ad a second time.
                     Log.e("TAG", "Ad was dismissed.");
-                    Toast.makeText(context, "No Reward Earned", Toast.LENGTH_SHORT).show();
+                    //     Toast.makeText(context, "No Reward Earned", Toast.LENGTH_SHORT).show();
                     //     loadRewardedAd();
                 }
 
@@ -572,8 +572,25 @@ public class MathGameScreen extends AppCompatActivity {
     }
 
     private void displayAnswer() {
-        Toast.makeText(context, "answer is " + ansInt, Toast.LENGTH_LONG).show();
-        HINTS_int--;
+//        Toast.makeText(context, "answer is " + ansInt, Toast.LENGTH_LONG).show();
+
+        String ansStr = String.valueOf(ansInt);
+
+        if (ansStr.equals(ans1.getText().toString())) {
+            ans1.setBackground(ContextCompat.getDrawable(context, R.drawable.math_button_correct));
+        } else if (ansStr.equals(ans2.getText().toString())) {
+            ans2.setBackground(ContextCompat.getDrawable(context, R.drawable.math_button_correct));
+        } else if (ansStr.equals(ans3.getText().toString())) {
+            ans3.setBackground(ContextCompat.getDrawable(context, R.drawable.math_button_correct));
+        } else if (ansStr.equals(ans4.getText().toString())) {
+            ans4.setBackground(ContextCompat.getDrawable(context, R.drawable.math_button_correct));
+        } else if (ansStr.equals(ans5.getText().toString())) {
+            ans5.setBackground(ContextCompat.getDrawable(context, R.drawable.math_button_correct));
+        } else if (ansStr.equals(ans6.getText().toString())) {
+            ans6.setBackground(ContextCompat.getDrawable(context, R.drawable.math_button_correct));
+        } else
+
+            HINTS_int--;
         setIconsHints();
     }
 

@@ -115,13 +115,13 @@ public class DrawMainActivity extends AppCompatActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+                seekbarTv.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
                                           boolean fromUser) {
 
-                seekbarTv.setVisibility(View.VISIBLE);
                 int val = (progress * (seekBar.getWidth() - 2 * seekBar.getThumbOffset())) / seekBar.getMax();
                 seekbarTv.setText("" + progress);
                 seekbarTv.setX(seekBar.getX() + val + seekBar.getThumbOffset() / 2);
